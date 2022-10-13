@@ -233,7 +233,7 @@ angular.element(document).ready(function () {
         "data:attachment/csv;base64," +
         btoa(unescape(encodeURIComponent($scope.csvString())));
       a.target = "_blank";
-      a.download = `ynab_data_${date.yyyymmdd()}.csv`;
+      a.download = $scope.profileName + ".csv";
       document.body.appendChild(a);
       a.click();
     };
