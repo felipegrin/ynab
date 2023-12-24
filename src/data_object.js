@@ -74,6 +74,11 @@ window.DataObject = class DataObject {
           ynab_cols.forEach(function (col) {
             var cell;
             cell = row[lookup[col]];
+            // MODIFICADO POR MIM: SE A LINHA FOR NO FORMATO XX:XX, SET SKIP TRUE
+            var re = new RegExp(/\d\d:\d\d/i);
+            if (re.test(cell)){
+              skip = true;
+            }
             // Some YNAB columns need special formatting,
             //   the rest are just returned as they are.
             if (cell) {
@@ -106,7 +111,12 @@ window.DataObject = class DataObject {
               }
             }
           });
-          value.push(tmp_row);
+          // MODIFICADO POR MIM: SE SKIP=TRUE, NAO INCLUIR LINHA NO ARRAY
+          if (skip==true){
+            console.log("skipped");
+          } else{
+            value.push(tmp_row);
+          }
         }
       });
     }
