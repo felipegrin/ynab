@@ -69,6 +69,8 @@ window.DataObject = class DataObject {
     if (this.base_json.data) {
       this.base_json.data.forEach(function (row, index) {
         var tmp_row;
+       // MODIFICADO POR MIM: ADICIONADO VAR SKIP
+        var skip;
         if (!limit || index < limit) {
           tmp_row = {};
           ynab_cols.forEach(function (col) {
