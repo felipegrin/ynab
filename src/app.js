@@ -199,12 +199,12 @@ angular.element(document).ready(function () {
         } else {
           $scope.data_object.parseCsv(newValue, $scope.file.chosenEncoding, $scope.file.startAtRow, $scope.file.chosenDelimiter);
         }
-        $scope.preview = $scope.data_object.converted_json(10, $scope.ynab_cols, $scope.ynab_map, $scope.inverted_outflow);
+        $scope.preview = $scope.data_object.converted_json(20, $scope.ynab_cols, $scope.ynab_map, $scope.inverted_outflow);
       }
     });
     $scope.$watch("inverted_outflow", function (newValue, oldValue) {
       if (newValue != oldValue) {
-        $scope.preview = $scope.data_object.converted_json(10, $scope.ynab_cols, $scope.ynab_map, $scope.inverted_outflow);
+        $scope.preview = $scope.data_object.converted_json(20, $scope.ynab_cols, $scope.ynab_map, $scope.inverted_outflow);
       }
     });
     $scope.$watch(
@@ -212,7 +212,7 @@ angular.element(document).ready(function () {
       function (newValue, oldValue) {
         $scope.profile.chosenColumns = newValue;
         localStorage.setItem('profiles', JSON.stringify($scope.profiles));
-        $scope.preview = $scope.data_object.converted_json(10, $scope.ynab_cols, newValue, $scope.inverted_outflow);
+        $scope.preview = $scope.data_object.converted_json(20, $scope.ynab_cols, newValue, $scope.inverted_outflow);
       },
       true
     );
