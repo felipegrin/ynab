@@ -181,7 +181,7 @@
                   <i class="fa fa-exchange"></i> Toggle column format
                 </div>
               </div>
-              <h4>YNAB Data <small>(first 10 rows)</small></h4>
+              <h4>YNAB Data <small>(first 20 rows)</small></h4>
               <div class="clearfix"></div>
             </div>
             <div class="table-container">
@@ -219,7 +219,7 @@
         <div class="container" ng-if="data_object.base_json">
           <div class="card">
             <div class="card-header">
-              <strong>Imported CSV</strong> <em>(first 10 rows)</em>
+              <strong>Imported CSV</strong> <em>(first 20 rows)</em>
             </div>
             <div class="table-container table-responsive">
               <table class="table table-sm">
@@ -229,7 +229,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="row in data_object.rows() | limitTo:10">
+                  <tr ng-repeat="row in data_object.rows() | limitTo:20">
                     <td ng-repeat="col in data_object.fields()">
                       {{row[col]}}
                     </td>
